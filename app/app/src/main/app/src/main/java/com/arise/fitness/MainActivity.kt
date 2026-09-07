@@ -29,9 +29,7 @@ fun AriseFitnessApp() {
         HomeScreen()
     } else {
         StartScreen(
-            onStart = {
-                started = true
-            }
+            onStart = { started = true }
         )
     }
 }
@@ -64,9 +62,7 @@ fun StartScreen(onStart: () -> Unit) {
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            Button(
-                onClick = onStart
-            ) {
+            Button(onClick = onStart) {
                 Text("START")
             }
         }
@@ -76,6 +72,11 @@ fun StartScreen(onStart: () -> Unit) {
 @Composable
 fun HomeScreen() {
 
+    var xp by remember { mutableStateOf(0) }
+
+    val level = (xp / 100) + 1
+    val currentXp = xp % 100
+
     Surface(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -83,8 +84,7 @@ fun HomeScreen() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
             Text(
@@ -92,17 +92,37 @@ fun HomeScreen() {
                 style = MaterialTheme.typography.headlineMedium
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(24.dp))
 
-            Text("Level 1")
+            Text(
+                text = "LEVEL $level",
+                style = MaterialTheme.typography.titleLarge
+            )
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            Text("XP: 0 / 100")
+            Text("XP: $currentXp / 100")
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(32.dp))
 
-            Text("Welcome to ARISE.")
+            Text(
+                text = "DAILY QUEST",
+                style = MaterialTheme.typography.titleLarge
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Text("Complete 20 Push-Ups")
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Button(
+                onClick = {
+                    xp += 20
+                }
+            ) {
+                Text("COMPLETE QUEST +20 XP")
+            }
         }
     }
 }
