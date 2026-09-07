@@ -1,7 +1,7 @@
 name: Build ARISE APK
 
-on:
-  workflow_dispatch:
+"on":
+  workflow_dispatch: {}
 
 jobs:
   build:
@@ -15,12 +15,10 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: "17"
 
       - name: Build APK
-        run: |
-          chmod +x ./gradlew
-          ./gradlew assembleDebug
+        run: chmod +x ./gradlew && ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
