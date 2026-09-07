@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,20 +22,16 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun AriseFitnessApp() {
-
     Surface(
         modifier = Modifier.fillMaxSize()
     ) {
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(24.dp),
-
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-
             Text(
                 text = "ARISE",
                 style = MaterialTheme.typography.displayLarge
@@ -45,7 +40,7 @@ fun AriseFitnessApp() {
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "Fitness RPG",
+                text = "FITNESS RPG",
                 style = MaterialTheme.typography.headlineMedium
             )
 
