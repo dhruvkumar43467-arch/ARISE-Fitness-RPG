@@ -2,11 +2,9 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-
     <application
         android:theme="@style/Theme.Arise"
-        android:label="ARISE"
+        android:label="Arise"
         android:allowBackup="true"
         android:supportsRtl="true">
 
@@ -15,15 +13,11 @@
             android:exported="true">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
         </activity>
-
-        <receiver
-            android:name=".WorkoutReceiver"
-            android:exported="false"/>
 
     </application>
 
